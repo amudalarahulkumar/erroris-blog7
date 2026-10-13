@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8fb" />
+  <meta name="description" content="Explore the real side of entrepreneurship: learning through experiments, feedback, setbacks, teamwork, and the E-Cell journey." />
+  <meta property="og:title" content="When an Idea Fails: Knowing When to Pivot — E-Cell Journal" />
+  <meta property="og:description" content="Learn how to interpret setbacks and decide whether to improve, change direction, or stop." />
+  <meta property="og:type" content="article" />
+  <title>When an Idea Fails: Knowing When to Pivot | E-Cell Journal</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #647087;
+      --line: #e4e8f0;
+      --blue: #2859d6;
+      --blue-dark: #173b9c;
+      --blue-soft: #eaf0ff;
+      --max: 1120px;
+      --article: 740px;
+      --radius: 22px;
+      --shadow: 0 18px 55px rgba(25, 42, 80, .07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+
+    .topbar {
+      border-bottom: 1px solid rgba(228, 232, 240, .9);
+      background: rgba(247, 248, 251, .88);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-size: .94rem;
+      font-weight: 800;
+      letter-spacing: -.035em;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--blue);
+      border-radius: 12px;
+      font-size: .88rem;
+      letter-spacing: -.06em;
+    }
+    .nav-label {
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .nav-label:hover { color: var(--blue); }
+
+    .hero {
+      padding: 74px 0 44px;
+    }
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid #dce5ff;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    h1 {
+      max-width: 850px;
+      margin: 25px auto 18px;
+      font-size: clamp(2.55rem, 6.3vw, 5.1rem);
+      line-height: 1.04;
+      letter-spacing: -.075em;
+      font-weight: 850;
+    }
+    .subtitle {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.22rem);
+      line-height: 1.7;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px 16px;
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: .83rem;
+      font-weight: 600;
+    }
+    .meta span + span::before {
+      content: "·";
+      margin-right: 16px;
+      color: #a4adbd;
+    }
+
+    .cover {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      max-height: 410px;
+      aspect-ratio: 2.25 / 1;
+      margin: 12px auto 0;
+      border: 1px solid #c8cfd5;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 78% 23%, rgba(255,255,255,.95) 0 5%, transparent 5.4%),
+        radial-gradient(circle at 78% 23%, rgba(255,255,255,.22) 0 13%, transparent 13.5%),
+        linear-gradient(130deg, #303943 0%, #65717e 52%, #adb6bf 100%);
+      box-shadow: var(--shadow);
+    }
+    .cover::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -80px;
+      top: -240px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(255,255,255,.055), 0 0 0 75px rgba(255,255,255,.045), 0 0 0 120px rgba(255,255,255,.035);
+    }
+    .cover::after {
+      content: "";
+      position: absolute;
+      width: 56%;
+      height: 2px;
+      right: 8%;
+      bottom: 23%;
+      transform: rotate(-26deg);
+      transform-origin: right center;
+      background: rgba(255,255,255,.55);
+    }
+    .cover-art {
+      position: absolute;
+      right: 16%;
+      top: 17%;
+      width: 170px;
+      height: 170px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.52);
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(5px);
+    }
+    .cover-art svg { width: 94px; height: 94px; }
+    .cover-caption {
+      position: absolute;
+      z-index: 1;
+      left: clamp(24px, 5.5vw, 62px);
+      bottom: clamp(25px, 5vw, 54px);
+      color: #fff;
+    }
+    .cover-caption small {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+    }
+    .cover-caption strong {
+      display: block;
+      max-width: 460px;
+      font-size: clamp(1.55rem, 3.6vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -.055em;
+    }
+
+    .article-shell {
+      display: grid;
+      grid-template-columns: minmax(0, var(--article)) 220px;
+      gap: 46px;
+      align-items: start;
+      justify-content: center;
+      padding: 58px 0 88px;
+    }
+    article {
+      min-width: 0;
+      padding: clamp(25px, 5vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 10px 35px rgba(25, 42, 80, .035);
+    }
+    .intro {
+      margin: 0 0 30px;
+      padding: 0 0 28px;
+      border-bottom: 1px solid var(--line);
+      color: #34415a;
+      font-size: 1.13rem;
+      line-height: 1.85;
+    }
+    .intro strong { color: var(--ink); }
+    h2 {
+      margin: 38px 0 13px;
+      font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+      line-height: 1.25;
+      letter-spacing: -.045em;
+    }
+    article p {
+      margin: 0 0 17px;
+      color: #465168;
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+    .pullquote {
+      margin: 34px 0;
+      padding: 23px 25px;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 14px 14px 0;
+      background: #f2f5ff;
+      color: #203c84;
+      font-size: 1.12rem;
+      font-weight: 750;
+      line-height: 1.65;
+      letter-spacing: -.02em;
+    }
+    .end-note {
+      margin-top: 36px;
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 1.08rem;
+      font-weight: 750;
+      line-height: 1.8;
+    }
+
+    aside {
+      position: sticky;
+      top: 28px;
+      padding-top: 8px;
+    }
+    .side-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.75);
+    }
+    .side-title {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .toc { margin: 0; padding: 0; list-style: none; }
+    .toc li { margin: 0; }
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      color: #4d5870;
+      font-size: .86rem;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+    .toc a:hover { color: var(--blue); }
+    .side-divider { height: 1px; margin: 18px 0; background: var(--line); }
+    .side-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.7;
+    }
+
+    .bottom-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 22px;
+      padding: 27px 30px;
+      border-radius: 18px;
+      background: #172b5d;
+      color: #fff;
+    }
+    .bottom-cta h2 {
+      margin: 0 0 5px;
+      font-size: 1.25rem;
+    }
+    .bottom-cta p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      font-size: .9rem;
+    }
+    .back-top {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .back-top:hover { background: rgba(255,255,255,.1); }
+
+    footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    .footer-brand { color: var(--ink); font-weight: 800; }
+    .reading-progress {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+    }
+
+    @media (max-width: 900px) {
+      .article-shell { grid-template-columns: minmax(0, var(--article)); }
+      aside { position: static; order: -1; }
+      .side-card { padding: 17px 20px; }
+      .toc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+      .side-divider, .side-note { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      .nav { min-height: 66px; }
+      .nav-label { font-size: .78rem; }
+      .hero { padding: 48px 0 28px; }
+      h1 { margin-top: 20px; }
+      .meta { gap: 7px 10px; font-size: .76rem; }
+      .meta span + span::before { margin-right: 10px; }
+      .cover { min-height: 270px; aspect-ratio: 1.15 / 1; }
+      .cover-art { width: 120px; height: 120px; right: 9%; top: 13%; }
+      .cover-art svg { width: 70px; height: 70px; }
+      .cover-caption { left: 22px; bottom: 24px; }
+      .cover-caption strong { max-width: 250px; }
+      .article-shell { padding: 34px 0 58px; gap: 20px; }
+      article { padding: 25px 21px; border-radius: 18px; }
+      .intro { font-size: 1.04rem; }
+      article p { font-size: .97rem; }
+      .toc { grid-template-columns: 1fr; }
+      .toc a { padding: 6px 0; }
+      .bottom-cta { align-items: flex-start; flex-direction: column; padding: 23px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  .example-grid{display:grid;gap:14px;margin:24px 0}.example{padding:20px;border:1px solid var(--line);border-radius:14px;background:#f7f9ff}.example h3{margin:0 0 8px;font-size:1.05rem;line-height:1.4}.example p{margin:0}h2{scroll-margin-top:24px}@media(max-width:400px){.nav{gap:10px}.brand{font-size:.88rem;gap:8px}.brand-mark{width:30px;height:30px}.nav-label{font-size:.68rem}} </style>
+</head>
+<body id="top">
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Team Erroris — E-Cell Journal">
+        <span class="brand-mark">E</span>
+        <span>Team Erroris</span>
+      </a>
+      <a class="nav-label" href="#article" style="color:var(--blue-dark);font-weight:800">NEC ID: NEC2683357</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Blog 07 · Entrepreneurship</span>
+        <h1 id="page-title">When an Idea Fails: Knowing When to Pivot</h1>
+        <p class="subtitle">Learn how to interpret setbacks and decide whether to improve, change direction, or stop.</p>
+        <div class="meta" aria-label="Article details">
+          <span>E-Cell Blog Series</span>
+          <span>Student Innovation</span>
+          <span>Learning &amp; Growth</span>
+        </div>
+      </div>
+
+      <div class="cover" role="img" aria-label="Slate-grey illustration representing reflection and a new direction">
+        <div class="cover-art" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 13v10M50 77v10M13 50h10M77 50h10M24 24l7 7M69 69l7 7M76 24l-7 7M31 69l-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity=".75"/>
+            <path d="M35 43a15 15 0 1 1 30 0c0 6-3 9-7 13-2 2-3 4-3 7H45c0-3-1-5-3-7-4-4-7-7-7-13Z" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M45 70h10M46 76h8" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path d="m43 43 5 5 10-11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="cover-caption">
+          <small>Reflect · Reconsider · Respond</small>
+          <strong>A setback can reveal a better direction.</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap article-shell">
+      <article id="article"><p class="intro">You test an idea, share it with potential users, and discover that the response is weaker than you expected. That can be disappointing, but it also gives you information. <strong>The next decision is to understand what happened before choosing whether to improve the idea, pivot, or stop.</strong></p>
+<p>Entrepreneurship involves uncertainty. A promising concept can face problems with demand, delivery, pricing, or communication. Neither abandoning it immediately nor continuing unchanged is always the right response. Start by examining the evidence.</p>
+<h2 id="failure">1. Define What Actually Went Wrong</h2>
+<p>“The idea failed” is too broad to guide your next step. Did people ignore the offer? Did they sign up but never use it? Did they enjoy the service but reject the price? Did delivery cost more than the team could sustain?</p>
+<p>Separate the outcomes. A failed marketing message does not automatically mean the underlying problem is unimportant. A popular free service does not automatically have a viable business model. Identify which assumption the test challenged.</p>
+<p>Also check the test itself. If you reached people who do not experience the problem or used a prototype that could not complete the intended task, the result may say little about the opportunity you wanted to investigate.</p>
+<h2 id="listen">2. Listen Without Defending the Original Idea</h2>
+<p>Speak to people who tried the solution and people who chose not to. Ask what they expected, what happened, and what they used instead. Encourage specific examples rather than asking them to reassure you.</p>
+<p>For a campus event directory, students might explain that they already know about events but struggle to understand eligibility or registration. That feedback suggests the original explanation of the problem may have been incomplete.</p>
+<div class="pullquote">Treat feedback as information about the problem—not as a judgement of your ability to solve it.</div>
+<h2 id="options">3. Distinguish Improvement From a Pivot</h2>
+<p>An improvement changes how you deliver an existing approach. A pivot changes a central part of the venture, such as the customer group, the problem you address, or the way you create and earn value.</p>
+<div class="example-grid">
+<div class="example"><h3>Improve the approach</h3><p>Users need your service but struggle with a confusing form. Simplifying the form keeps the same customer and core solution.</p></div>
+<div class="example"><h3>Change direction</h3><p>Your research reveals that event organisers need help managing enquiries more than students need another discovery platform. Serving organisers would change the target customer and offer.</p></div>
+<div class="example"><h3>Stop the experiment</h3><p>The problem is minor, existing alternatives work well, and repeated relevant tests show little demand. Ending the project may be the most useful decision.</p></div>
+</div>
+<p>These are hypothetical examples. The appropriate response depends on your own research, constraints, and results.</p>
+<h2 id="signals">4. Look for Reasons to Change Direction</h2>
+<p>A pivot is worth exploring when evidence points towards a different opportunity. Users may consistently request the same alternative, one group may find much more value than another, or a useful solution may need a different delivery model to become workable.</p>
+<p>Do not change direction solely because one person disliked the idea or another offered an exciting suggestion. Look for a pattern, consider alternative explanations, and check whether the proposed direction addresses a meaningful need.</p>
+<p>A pivot should produce a clearer hypothesis. Explain who you would serve, what problem you would solve, and why the evidence supports testing that change.</p>
+<h2 id="test">5. Test the New Direction Before Rebuilding Everything</h2>
+<p>Use a small experiment to investigate the revised idea. If you are considering a service for organisers, speak to relevant organisers and try a limited manual version before developing a full platform.</p>
+<p>Decide what result would support continuing and what would challenge the new assumption. Match the measure to the question: successful task completion for usability, actual adoption for usefulness, or a transparent paid offer for payment demand.</p>
+<p>Keep the scope manageable. Changing several central assumptions together can make it difficult to understand which change affected the result.</p>
+<h2 id="costs">6. Do Not Let Past Effort Decide the Future</h2>
+<p>Work already invested can make an idea feel difficult to leave behind. But the next commitment should depend on the evidence and the resources still available, rather than a need to justify everything already spent.</p>
+<p>Discuss what continuing would require, what you might learn, and what other opportunities it would prevent you from pursuing. Agree on practical limits with the team and respect any commitments to users, partners, or contributors.</p>
+<p>If you stop, close the project responsibly. Explain what will happen to any pending work, payments, shared assets, or personal information. Record the lessons so that the experience remains useful.</p>
+<h2 id="team">7. Turn the Experience Into Better Judgement</h2>
+<p>Review the assumptions you began with, the evidence you collected, and the decisions you made. Ask what you would investigate earlier and which signals you overlooked. Focus on improving the process rather than blaming a teammate.</p>
+<p>For Team Erroris, E-Cell activities can provide a setting to discuss these lessons openly. A thoughtful account of an unsuccessful experiment can show more learning than a polished pitch that ignores contradictory evidence.</p>
+<p class="end-note">Knowing when to pivot means staying committed to learning while remaining flexible about the solution. Improve when the evidence supports it, change direction when a better hypothesis emerges, and stop when continuing no longer makes sense.</p>
+<div class="bottom-cta"><div><h2>Let the evidence guide your next move.</h2><p>Understand the setback before choosing a new direction.</p></div><a class="back-top" href="#top">Back to top ↑</a></div></article>
+
+      <aside aria-label="Article navigation">
+        <div class="side-card">
+          <p class="side-title">In this article</p>
+          <ul class="toc"><li><a href="#failure">Defin
